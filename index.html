@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>3D Dictionary</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            margin: 0;
+            padding: 40px;
+            color: white;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+            transform: perspective(1000px) rotateX(3deg);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .search-box input {
+            width: 80%;
+            padding: 15px;
+            font-size: 18px;
+            border-radius: 12px;
+            border: none;
+            outline: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        th,
+        td {
+            padding: 15px;
+            text-align: center;
+        }
+
+        tbody tr:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.01);
+        }
+        .cap{
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>📘 Amit Dictionary</h1>
+
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Search English or Hindi word..." onkeyup="searchWord()">
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Sr No</th>
+                    <th>English Word</th>
+                    <th>Hindi Meaning</th>
+                </tr>
+            </thead>
+            <tbody id="dictionary">
+                <!-- SERIAL NUMBER AUTOMATIC -->
+                <tr>
+                    <td></td>
+                    <td class="cap">bone</td>
+                    <td>हड्डी</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="cap">skin</td>
+                    <td>त्वचा</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="cap">sole</td>
+                    <td>तलवा</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="cap">palm</td>
+                    <td>हथेली</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="cap">vein</td>
+                    <td>नस</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="cap">backbone</td>
+                    <td>रीढ़ की हड्डी</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="cap">navel</td>
+                    <td>नाभि</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="cap">eyelid</td>
+                    <td>पलक</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="cap">chin</td>
+                    <td>ठुड्डी</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="cap">leaf</td>
+                    <td>पत्ता</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="cap">amazing</td>
+                    <td>अद्भुत</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="cap">fact</td>
+                    <td>तथ्य</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function generateSerial() {
+            let rows = document.querySelectorAll("#dictionary tr");
+            let count = 1;
+            rows.forEach(row => {
+                row.cells[0].innerText = count++;
+            });
+        }
+
+        function searchWord() {
+            let input = document.getElementById("search").value.toLowerCase();
+            let rows = document.querySelectorAll("#dictionary tr");
+
+            rows.forEach(row => {
+                let english = row.cells[1].innerText.toLowerCase();
+                let hindi = row.cells[2].innerText.toLowerCase();
+
+                if (english.includes(input) || hindi.includes(input)) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
+
+        // Page load pe serial generate
+        generateSerial();
+    </script>
+
+</body>
+
+</html>
