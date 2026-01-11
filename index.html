@@ -8,104 +8,115 @@
 <style>
 body {
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    background: linear-gradient(135deg, #0b132b, #1c2541, #3a506b);
     margin: 0;
     color: white;
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
-h1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 120px 20px 40px;
 }
 
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    display: none;
+}
+
+/* Search */
 .search-fixed {
     position: fixed;
-    top: 20;
-    /* top: 0; */
-    width: 100%;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    padding: 15px 0;
+    width: 90%;
+    padding-top: 18px;
+    padding-bottom: 18px;
     z-index: 1000;
+    bottom: 87%;
+    display: flex;
+    justify-content: center;
 }
 
 .search-box {
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 .search-box input {
-    width: 80%;
+    width: 85%;
     max-width: 700px;
-    padding: 15px;
-    font-size: 18px;
-    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 16px;
+    border-radius: 14px;
     border: none;
+    outline: none;
 }
 
+/* Container */
 .container {
     max-width: 900px;
     margin: auto;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    border-radius: 20px;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.6);
-    padding: 20px;
-    padding-top: 60px;
+    border-radius: 22px;
 }
 
+/* Table */
 table {
     width: 100%;
     border-collapse: collapse;
-    background: rgba(255,255,255,0.15);
-    border-radius: 15px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 16px;
     overflow: hidden;
+
 }
 
-th, td {
-    padding: 15px;
+th {
+    background: rgba(0,0,0,0.35);
+    padding: 16px;
+}
+
+td {
+    padding: 14px;
     text-align: center;
 }
 
-.cap { text-transform: capitalize; }
+tbody tr:hover {
+    background: rgba(255,255,255,0.08);
+}
 
+.cap {
+    text-transform: capitalize;
+}
+
+/* Pagination */
 .pagination {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
+    align-items: center;
+    gap: 18px;
+    margin-top: 25px;
 }
 
 .pagination button {
-    padding: 10px 25px;
-    font-size: 16px;
+    padding: 10px 24px;
+    font-size: 15px;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     cursor: pointer;
+    background: linear-gradient(135deg, #5bc0be, #3a86ff);
+    color: black;
+    font-weight: 600;
 }
 
 .pagination button:disabled {
     opacity: 0.4;
     cursor: not-allowed;
 }
-#pageNumbers {
-    display: flex;
-    gap: 10px;
-}
 
-#pageNumbers span {
-    padding: 8px 14px;
-    background: rgba(255,255,255,0.2);
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-#pageNumbers span.active {
-    background: white;
+#currentPageBox {
+    padding: 10px 18px;
+    background: #ffd166;
     color: black;
     font-weight: bold;
+    border-radius: 12px;
+    min-width: 40px;
+    text-align: center;
 }
-
 </style>
 </head>
 
@@ -119,12 +130,12 @@ th, td {
 </div>
 
 <div class="container">
-<h1>Tiwari family</h1>
+<h1>Tiwari Family Dictionary</h1>
 
 <table>
 <thead>
 <tr>
-    <th>Sr No</th>
+    <th>Sr</th>
     <th>English</th>
     <th>Hindi</th>
 </tr>
@@ -140,111 +151,441 @@ th, td {
 <tr><td></td><td class="cap">eyelid</td><td>पलक</td></tr>
 <tr><td></td><td class="cap">chin</td><td>ठुड्डी</td></tr>
 <tr><td></td><td class="cap">leaf</td><td>पत्ता</td></tr>
-<tr><td></td><td class="cap">amazing</td><td>अद्भुत</td></tr>
-<tr><td></td><td class="cap">fact</td><td>तथ्य</td></tr>
+<tr><td></td><td class="cap">book</td><td>किताब</td></tr>
+<tr><td></td><td class="cap">pen</td><td>कलम</td></tr>
+<tr><td></td><td class="cap">pencil</td><td>पेंसिल</td></tr>
+<tr><td></td><td class="cap">chair</td><td>कुर्सी</td></tr>
+<tr><td></td><td class="cap">table</td><td>मेज़</td></tr>
+<tr><td></td><td class="cap">window</td><td>खिड़की</td></tr>
+<tr><td></td><td class="cap">door</td><td>दरवाज़ा</td></tr>
+<tr><td></td><td class="cap">wall</td><td>दीवार</td></tr>
+<tr><td></td><td class="cap">floor</td><td>फ़र्श</td></tr>
+<tr><td></td><td class="cap">ceiling</td><td>छत</td></tr>
+<tr><td></td><td class="cap">light</td><td>बत्ती</td></tr>
+<tr><td></td><td class="cap">fan</td><td>पंखा</td></tr>
+<tr><td></td><td class="cap">bed</td><td>बिस्तर</td></tr>
+<tr><td></td><td class="cap">pillow</td><td>तकिया</td></tr>
+<tr><td></td><td class="cap">blanket</td><td>कंबल</td></tr>
+<tr><td></td><td class="cap">mirror</td><td>आईना</td></tr>
+<tr><td></td><td class="cap">bucket</td><td>बाल्टी</td></tr>
+<tr><td></td><td class="cap">mug</td><td>मग</td></tr>
+<tr><td></td><td class="cap">soap</td><td>साबुन</td></tr>
+<tr><td></td><td class="cap">towel</td><td>तौलिया</td></tr>
+<tr><td></td><td class="cap">shirt</td><td>कमीज़</td></tr>
+<tr><td></td><td class="cap">pant</td><td>पतलून</td></tr>
+<tr><td></td><td class="cap">dress</td><td>पोशाक</td></tr>
+<tr><td></td><td class="cap">shoes</td><td>जूते</td></tr>
+<tr><td></td><td class="cap">socks</td><td>मोज़े</td></tr>
+<tr><td></td><td class="cap">bag</td><td>थैला / बैग</td></tr>
+<tr><td></td><td class="cap">watch</td><td>घड़ी</td></tr>
+<tr><td></td><td class="cap">belt</td><td>कमरबंद</td></tr>
+<tr><td></td><td class="cap">cap</td><td>टोपी</td></tr>
+<tr><td></td><td class="cap">glasses</td><td>ऐनक</td></tr>
+<tr><td></td><td class="cap">ring</td><td>अंगूठी</td></tr>
+<tr><td></td><td class="cap">necklace</td><td>हार</td></tr>
+<tr><td></td><td class="cap">earring</td><td>बाली</td></tr>
+<tr><td></td><td class="cap">comb</td><td>कंघी</td></tr>
+<tr><td></td><td class="cap">mirror</td><td>आईना</td></tr>
+<tr><td></td><td class="cap">toothbrush</td><td>दाँतों का ब्रश</td></tr>
+<tr><td></td><td class="cap">toothpaste</td><td>टूथपेस्ट</td></tr>
+<tr><td></td><td class="cap">hair</td><td>बाल</td></tr>
+<tr><td></td><td class="cap">nail</td><td>नाखून</td></tr>
+<tr><td></td><td class="cap">face</td><td>चेहरा</td></tr>
+<tr><td></td><td class="cap">kitchen</td><td>रसोईघर</td></tr>
+<tr><td></td><td class="cap">stove</td><td>चूल्हा</td></tr>
+<tr><td></td><td class="cap">gas</td><td>गैस</td></tr>
+<tr><td></td><td class="cap">knife</td><td>चाकू</td></tr>
+<tr><td></td><td class="cap">spoon</td><td>चम्मच</td></tr>
+<tr><td></td><td class="cap">fork</td><td>काँटा</td></tr>
+<tr><td></td><td class="cap">plate</td><td>थाली</td></tr>
+<tr><td></td><td class="cap">bowl</td><td>कटोरा</td></tr>
+<tr><td></td><td class="cap">glass</td><td>गिलास</td></tr>
+<tr><td></td><td class="cap">cup</td><td>कप</td></tr>
+<tr><td></td><td class="cap">jug</td><td>जग</td></tr>
+<tr><td></td><td class="cap">pan</td><td>तवा / पैन</td></tr>
+<tr><td></td><td class="cap">pot</td><td>बर्तन / हांडी</td></tr>
+<tr><td></td><td class="cap">rice</td><td>चावल</td></tr>
+<tr><td></td><td class="cap">milk</td><td>दूध</td></tr>
+<tr><td></td><td class="cap">bread</td><td>रोटी / ब्रेड</td></tr>
+<tr><td></td><td class="cap">vegetable</td><td>सब्जी</td></tr>
+<tr><td></td><td class="cap">salt</td><td>नमक</td></tr>
+<tr><td></td><td class="cap">sugar</td><td>चीनी</td></tr>
+<tr><td></td><td class="cap">tea</td><td>चाय</td></tr>
+<tr><td></td><td class="cap">apple</td><td>सेब</td></tr>
+<tr><td></td><td class="cap">banana</td><td>केला</td></tr>
+<tr><td></td><td class="cap">mango</td><td>आम</td></tr>
+<tr><td></td><td class="cap">orange</td><td>संतरा</td></tr>
+<tr><td></td><td class="cap">grapes</td><td>अंगूर</td></tr>
+<tr><td></td><td class="cap">pineapple</td><td>अनानास</td></tr>
+<tr><td></td><td class="cap">watermelon</td><td>तरबूज</td></tr>
+<tr><td></td><td class="cap">papaya</td><td>पपीता</td></tr>
+<tr><td></td><td class="cap">guava</td><td>अमरूद</td></tr>
+<tr><td></td><td class="cap">pomegranate</td><td>अनार</td></tr>
+<tr><td></td><td class="cap">lemon</td><td>नींबू</td></tr>
+<tr><td></td><td class="cap">pear</td><td>नाशपाती</td></tr>
+<tr><td></td><td class="cap">peach</td><td>आड़ू</td></tr>
+<tr><td></td><td class="cap">coconut</td><td>नारियल</td></tr>
+<tr><td></td><td class="cap">strawberry</td><td>स्ट्रॉबेरी</td></tr>
+<tr><td></td><td class="cap">kiwi</td><td>कीवी</td></tr>
+<tr><td></td><td class="cap">muskmelon</td><td>खरबूजा</td></tr>
+<tr><td></td><td class="cap">tomato</td><td>टमाटर</td></tr>
+<tr><td></td><td class="cap">potato</td><td>आलू</td></tr>
+<tr><td></td><td class="cap">onion</td><td>प्याज़</td></tr>
+<tr><td></td><td class="cap">garlic</td><td>लहसुन</td></tr>
+<tr><td></td><td class="cap">ginger</td><td>अदरक</td></tr>
+<tr><td></td><td class="cap">carrot</td><td>गाजर</td></tr>
+<tr><td></td><td class="cap">cabbage</td><td>पत्ता गोभी</td></tr>
+<tr><td></td><td class="cap">cauliflower</td><td>फूलगोभी</td></tr>
+<tr><td></td><td class="cap">brinjal</td><td>बैंगन</td></tr>
+<tr><td></td><td class="cap">ladyfinger</td><td>भिंडी</td></tr>
+<tr><td></td><td class="cap">spinach</td><td>पालक</td></tr>
+<tr><td></td><td class="cap">peas</td><td>मटर</td></tr>
+<tr><td></td><td class="cap">cucumber</td><td>खीरा</td></tr>
+<tr><td></td><td class="cap">bottle gourd</td><td>लौकी</td></tr>
+<tr><td></td><td class="cap">bitter gourd</td><td>करेला</td></tr>
+<tr><td></td><td class="cap">ridge gourd</td><td>तोरी</td></tr>
+<tr><td></td><td class="cap">pumpkin</td><td>कद्दू</td></tr>
+<tr><td></td><td class="cap">corn</td><td>मक्का / भुट्टा</td></tr>
+<tr><td></td><td class="cap">chili</td><td>मिर्च</td></tr>
+<tr><td></td><td class="cap">capsicum</td><td>शिमला मिर्च</td></tr>
+<tr><td></td><td class="cap">beetroot</td><td>चुकंदर</td></tr>
+<tr><td></td><td class="cap">radish</td><td>मूली</td></tr>
+<tr><td></td><td class="cap">go</td><td>जाना</td></tr>
+<tr><td></td><td class="cap">come</td><td>आना</td></tr>
+<tr><td></td><td class="cap">eat</td><td>खाना</td></tr>
+<tr><td></td><td class="cap">drink</td><td>पीना</td></tr>
+<tr><td></td><td class="cap">sleep</td><td>सोना</td></tr>
+<tr><td></td><td class="cap">wake up</td><td>जागना</td></tr>
+<tr><td></td><td class="cap">sit</td><td>बैठना</td></tr>
+<tr><td></td><td class="cap">stand</td><td>खड़ा होना</td></tr>
+<tr><td></td><td class="cap">walk</td><td>चलना</td></tr>
+<tr><td></td><td class="cap">run</td><td>दौड़ना</td></tr>
+<tr><td></td><td class="cap">read</td><td>पढ़ना</td></tr>
+<tr><td></td><td class="cap">write</td><td>लिखना</td></tr>
+<tr><td></td><td class="cap">speak</td><td>बोलना</td></tr>
+<tr><td></td><td class="cap">listen</td><td>सुनना</td></tr>
+<tr><td></td><td class="cap">see</td><td>देखना</td></tr>
+<tr><td></td><td class="cap">buy</td><td>खरीदना</td></tr>
+<tr><td></td><td class="cap">sell</td><td>बेचना</td></tr>
+<tr><td></td><td class="cap">help</td><td>मदद करना</td></tr>
+<tr><td></td><td class="cap">open</td><td>खोलना</td></tr>
+<tr><td></td><td class="cap">close</td><td>बंद करना</td></tr>
+<tr><td></td><td class="cap">good</td><td>अच्छा</td></tr>
+<tr><td></td><td class="cap">bad</td><td>बुरा</td></tr>
+<tr><td></td><td class="cap">big</td><td>बड़ा</td></tr>
+<tr><td></td><td class="cap">small</td><td>छोटा</td></tr>
+<tr><td></td><td class="cap">hot</td><td>गर्म</td></tr>
+<tr><td></td><td class="cap">cold</td><td>ठंडा</td></tr>
+<tr><td></td><td class="cap">new</td><td>नया</td></tr>
+<tr><td></td><td class="cap">old</td><td>पुराना</td></tr>
+<tr><td></td><td class="cap">happy</td><td>खुश</td></tr>
+<tr><td></td><td class="cap">sad</td><td>उदास</td></tr>
+<tr><td></td><td class="cap">beautiful</td><td>सुंदर</td></tr>
+<tr><td></td><td class="cap">ugly</td><td>बदसूरत</td></tr>
+<tr><td></td><td class="cap">easy</td><td>आसान</td></tr>
+<tr><td></td><td class="cap">difficult</td><td>कठिन</td></tr>
+<tr><td></td><td class="cap">fast</td><td>तेज़</td></tr>
+<tr><td></td><td class="cap">slow</td><td>धीमा</td></tr>
+<tr><td></td><td class="cap">clean</td><td>साफ़</td></tr>
+<tr><td></td><td class="cap">dirty</td><td>गंदा</td></tr>
+<tr><td></td><td class="cap">right</td><td>सही</td></tr>
+<tr><td></td><td class="cap">wrong</td><td>गलत</td></tr>
+<tr><td></td><td class="cap">mother</td><td>माँ</td></tr>
+<tr><td></td><td class="cap">father</td><td>पिता</td></tr>
+<tr><td></td><td class="cap">brother</td><td>भाई</td></tr>
+<tr><td></td><td class="cap">sister</td><td>बहन</td></tr>
+<tr><td></td><td class="cap">son</td><td>बेटा</td></tr>
+<tr><td></td><td class="cap">daughter</td><td>बेटी</td></tr>
+<tr><td></td><td class="cap">husband</td><td>पति</td></tr>
+<tr><td></td><td class="cap">wife</td><td>पत्नी</td></tr>
+<tr><td></td><td class="cap">grandfather</td><td>दादा</td></tr>
+<tr><td></td><td class="cap">grandmother</td><td>दादी</td></tr>
+<tr><td></td><td class="cap">uncle</td><td>चाचा</td></tr>
+<tr><td></td><td class="cap">aunt</td><td>चाची</td></tr>
+<tr><td></td><td class="cap">cousin</td><td>चचेरा भाई/बहन</td></tr>
+<tr><td></td><td class="cap">nephew</td><td>भतीजा</td></tr>
+<tr><td></td><td class="cap">niece</td><td>भतीजी</td></tr>
+<tr><td></td><td class="cap">father-in-law</td><td>ससुर</td></tr>
+<tr><td></td><td class="cap">mother-in-law</td><td>सास</td></tr>
+<tr><td></td><td class="cap">brother-in-law</td><td>बहनोई</td></tr>
+<tr><td></td><td class="cap">sister-in-law</td><td>भाभी</td></tr>
+<tr><td></td><td class="cap">child</td><td>बच्चा</td></tr>
+<tr><td></td><td class="cap">house</td><td>घर</td></tr>
+<tr><td></td><td class="cap">market</td><td>बाज़ार</td></tr>
+<tr><td></td><td class="cap">school</td><td>स्कूल</td></tr>
+<tr><td></td><td class="cap">hospital</td><td>अस्पताल</td></tr>
+<tr><td></td><td class="cap">shop</td><td>दुकान</td></tr>
+<tr><td></td><td class="cap">bank</td><td>बैंक</td></tr>
+<tr><td></td><td class="cap">park</td><td>पार्क</td></tr>
+<tr><td></td><td class="cap">road</td><td>सड़क</td></tr>
+<tr><td></td><td class="cap">street</td><td>गली</td></tr>
+<tr><td></td><td class="cap">left</td><td>बायाँ</td></tr>
+<tr><td></td><td class="cap">right</td><td>दायाँ</td></tr>
+<tr><td></td><td class="cap">straight</td><td>सीधा</td></tr>
+<tr><td></td><td class="cap">near</td><td>पास</td></tr>
+<tr><td></td><td class="cap">far</td><td>दूर</td></tr>
+<tr><td></td><td class="cap">inside</td><td>अंदर</td></tr>
+<tr><td></td><td class="cap">outside</td><td>बाहर</td></tr>
+<tr><td></td><td class="cap">up</td><td>ऊपर</td></tr>
+<tr><td></td><td class="cap">down</td><td>नीचे</td></tr>
+<tr><td></td><td class="cap">front</td><td>आगे</td></tr>
+<tr><td></td><td class="cap">behind</td><td>पीछे</td></tr>
+<tr><td></td><td class="cap">sun</td><td>सूरज</td></tr>
+<tr><td></td><td class="cap">rain</td><td>बारिश</td></tr>
+<tr><td></td><td class="cap">wind</td><td>हवा</td></tr>
+<tr><td></td><td class="cap">cloud</td><td>बादल</td></tr>
+<tr><td></td><td class="cap">hot</td><td>गर्म</td></tr>
+<tr><td></td><td class="cap">cold</td><td>ठंडा</td></tr>
+<tr><td></td><td class="cap">humid</td><td>उमस भरा</td></tr>
+<tr><td></td><td class="cap">summer</td><td>गर्मी</td></tr>
+<tr><td></td><td class="cap">winter</td><td>सर्दी</td></tr>
+<tr><td></td><td class="cap">rainy</td><td>बरसाती</td></tr>
+<tr><td></td><td class="cap">tired</td><td>थका हुआ</td></tr>
+<tr><td></td><td class="cap">hungry</td><td>भूखा</td></tr>
+<tr><td></td><td class="cap">thirsty</td><td>प्यासा</td></tr>
+<tr><td></td><td class="cap">angry</td><td>गुस्सैल</td></tr>
+<tr><td></td><td class="cap">excited</td><td>उत्साहित</td></tr>
+<tr><td></td><td class="cap">bored</td><td>उबा हुआ</td></tr>
+<tr><td></td><td class="cap">sick</td><td>बीमार</td></tr>
+<tr><td></td><td class="cap">fine</td><td>ठीक</td></tr>
+<tr><td></td><td class="cap">strong</td><td>मजबूत</td></tr>
+<tr><td></td><td class="cap">weak</td><td>कमजोर</td></tr>
+<tr><td></td><td class="cap">car</td><td>कार</td></tr>
+<tr><td></td><td class="cap">bus</td><td>बस</td></tr>
+<tr><td></td><td class="cap">train</td><td>ट्रेन</td></tr>
+<tr><td></td><td class="cap">bike</td><td>बाइक</td></tr>
+<tr><td></td><td class="cap">cycle</td><td>साइकिल</td></tr>
+<tr><td></td><td class="cap">auto</td><td>ऑटो</td></tr>
+<tr><td></td><td class="cap">taxi</td><td>टैक्सी</td></tr>
+<tr><td></td><td class="cap">plane</td><td>हवाई जहाज़</td></tr>
+<tr><td></td><td class="cap">ticket</td><td>टिकट</td></tr>
+<tr><td></td><td class="cap">station</td><td>स्टेशन</td></tr>
+<tr><td></td><td class="cap">airport</td><td>हवाई अड्डा</td></tr>
+<tr><td></td><td class="cap">road</td><td>सड़क</td></tr>
+<tr><td></td><td class="cap">travel</td><td>यात्रा</td></tr>
+<tr><td></td><td class="cap">journey</td><td>सफर</td></tr>
+<tr><td></td><td class="cap">driver</td><td>ड्राइवर</td></tr>
+<tr><td></td><td class="cap">passenger</td><td>यात्री</td></tr>
+<tr><td></td><td class="cap">fast</td><td>तेज़</td></tr>
+<tr><td></td><td class="cap">slow</td><td>धीमा</td></tr>
+<tr><td></td><td class="cap">stop</td><td>रुकना</td></tr>
+<tr><td></td><td class="cap">go</td><td>जाना</td></tr>
+<tr><td></td><td class="cap">money</td><td>पैसे</td></tr>
+<tr><td></td><td class="cap">price</td><td>दाम</td></tr>
+<tr><td></td><td class="cap">cheap</td><td>सस्ता</td></tr>
+<tr><td></td><td class="cap">expensive</td><td>महंगा</td></tr>
+<tr><td></td><td class="cap">shop</td><td>दुकान</td></tr>
+<tr><td></td><td class="cap">mall</td><td>मॉल</td></tr>
+<tr><td></td><td class="cap">buy</td><td>खरीदना</td></tr>
+<tr><td></td><td class="cap">sell</td><td>बेचना</td></tr>
+<tr><td></td><td class="cap">pay</td><td>भुगतान करना</td></tr>
+<tr><td></td><td class="cap">change</td><td>बाकी का पैसा</td></tr>
+<tr><td></td><td class="cap">rupee</td><td>रुपया</td></tr>
+<tr><td></td><td class="cap">dollar</td><td>डॉलर</td></tr>
+<tr><td></td><td class="cap">wallet</td><td>पर्स</td></tr>
+<tr><td></td><td class="cap">bag</td><td>थैला</td></tr>
+<tr><td></td><td class="cap">bill</td><td>बिल</td></tr>
+<tr><td></td><td class="cap">discount</td><td>छूट</td></tr>
+<tr><td></td><td class="cap">offer</td><td>ऑफर</td></tr>
+<tr><td></td><td class="cap">quality</td><td>गुणवत्ता</td></tr>
+<tr><td></td><td class="cap">size</td><td>साइज़</td></tr>
+<tr><td></td><td class="cap">new</td><td>नया</td></tr>
+<tr><td></td><td class="cap">head</td><td>सिर</td></tr>
+<tr><td></td><td class="cap">eye</td><td>आँख</td></tr>
+<tr><td></td><td class="cap">ear</td><td>कान</td></tr>
+<tr><td></td><td class="cap">nose</td><td>नाक</td></tr>
+<tr><td></td><td class="cap">mouth</td><td>मुँह</td></tr>
+<tr><td></td><td class="cap">hand</td><td>हाथ</td></tr>
+<tr><td></td><td class="cap">leg</td><td>टांग</td></tr>
+<tr><td></td><td class="cap">foot</td><td>पैर</td></tr>
+<tr><td></td><td class="cap">stomach</td><td>पेट</td></tr>
+<tr><td></td><td class="cap">heart</td><td>दिल</td></tr>
+<tr><td></td><td class="cap">doctor</td><td>डॉक्टर</td></tr>
+<tr><td></td><td class="cap">medicine</td><td>दवा</td></tr>
+<tr><td></td><td class="cap">pain</td><td>दर्द</td></tr>
+<tr><td></td><td class="cap">fever</td><td>बुखार</td></tr>
+<tr><td></td><td class="cap">cough</td><td>खाँसी</td></tr>
+<tr><td></td><td class="cap">headache</td><td>सिरदर्द</td></tr>
+<tr><td></td><td class="cap">stomachache</td><td>पेट दर्द</td></tr>
+<tr><td></td><td class="cap">healthy</td><td>स्वस्थ</td></tr>
+<tr><td></td><td class="cap">sick</td><td>बीमार</td></tr>
+<tr><td></td><td class="cap">exercise</td><td>व्यायाम</td></tr>
+<tr><td></td><td class="cap">office</td><td>कार्यालय</td></tr>
+<tr><td></td><td class="cap">job</td><td>नौकरी</td></tr>
+<tr><td></td><td class="cap">boss</td><td>बॉस</td></tr>
+<tr><td></td><td class="cap">colleague</td><td>सहकर्मी</td></tr>
+<tr><td></td><td class="cap">meeting</td><td>मीटिंग</td></tr>
+<tr><td></td><td class="cap">computer</td><td>कम्प्यूटर</td></tr>
+<tr><td></td><td class="cap">phone</td><td>फोन</td></tr>
+<tr><td></td><td class="cap">email</td><td>ईमेल</td></tr>
+<tr><td></td><td class="cap">file</td><td>फ़ाइल</td></tr>
+<tr><td></td><td class="cap">desk</td><td>मेज़</td></tr>
+<tr><td></td><td class="cap">chair</td><td>कुर्सी</td></tr>
+<tr><td></td><td class="cap">work</td><td>काम</td></tr>
+<tr><td></td><td class="cap">busy</td><td>व्यस्त</td></tr>
+<tr><td></td><td class="cap">free</td><td>खाली</td></tr>
+<tr><td></td><td class="cap">salary</td><td>वेतन</td></tr>
+<tr><td></td><td class="cap">holiday</td><td>छुट्टी</td></tr>
+<tr><td></td><td class="cap">morning shift</td><td>सुबह की शिफ्ट</td></tr>
+<tr><td></td><td class="cap">night shift</td><td>रात की शिफ्ट</td></tr>
+<tr><td></td><td class="cap">break</td><td>विराम</td></tr>
+<tr><td></td><td class="cap">lunch</td><td>दोपहर का खाना</td></tr>
+<tr><td></td><td class="cap">dog</td><td>कुत्ता</td></tr>
+<tr><td></td><td class="cap">cat</td><td>बिल्ली</td></tr>
+<tr><td></td><td class="cap">cow</td><td>गाय</td></tr>
+<tr><td></td><td class="cap">buffalo</td><td>भैंस</td></tr>
+<tr><td></td><td class="cap">horse</td><td>घोड़ा</td></tr>
+<tr><td></td><td class="cap">elephant</td><td>हाथी</td></tr>
+<tr><td></td><td class="cap">lion</td><td>शेर</td></tr>
+<tr><td></td><td class="cap">tiger</td><td>बाघ</td></tr>
+<tr><td></td><td class="cap">monkey</td><td>बंदर</td></tr>
+<tr><td></td><td class="cap">bird</td><td>पक्षी</td></tr>
+<tr><td></td><td class="cap">crow</td><td>कौआ</td></tr>
+<tr><td></td><td class="cap">sparrow</td><td>गौरैया</td></tr>
+<tr><td></td><td class="cap">parrot</td><td>तोता</td></tr>
+<tr><td></td><td class="cap">peacock</td><td>मोर</td></tr>
+<tr><td></td><td class="cap">hen</td><td>मुर्गी</td></tr>
+<tr><td></td><td class="cap">chicken</td><td>चूज़ा</td></tr>
+<tr><td></td><td class="cap">fish</td><td>मछली</td></tr>
+<tr><td></td><td class="cap">snake</td><td>साँप</td></tr>
+<tr><td></td><td class="cap">tree</td><td>पेड़</td></tr>
+<tr><td></td><td class="cap">flower</td><td>फूल</td></tr>
+<tr><td></td><td class="cap">spring</td><td>वसंत ऋतु</td></tr>
+<tr><td></td><td class="cap">summer</td><td>ग्रीष्म ऋतु</td></tr>
+<tr><td></td><td class="cap">monsoon</td><td>वर्षा ऋतु</td></tr>
+<tr><td></td><td class="cap">autumn</td><td>शरद ऋतु</td></tr>
+<tr><td></td><td class="cap">pre-winter</td><td>हेमंत ऋतु</td></tr>
+<tr><td></td><td class="cap">winter</td><td>शीत ऋतु</td></tr>
+<tr><td></td><td class="cap">monday</td><td>सोमवार</td></tr>
+<tr><td></td><td class="cap">tuesday</td><td>मंगलवार</td></tr>
+<tr><td></td><td class="cap">wednesday</td><td>बुधवार</td></tr>
+<tr><td></td><td class="cap">thursday</td><td>गुरुवार</td></tr>
+<tr><td></td><td class="cap">friday</td><td>शुक्रवार</td></tr>
+<tr><td></td><td class="cap">saturday</td><td>शनिवार</td></tr>
+<tr><td></td><td class="cap">sunday</td><td>रविवार</td></tr>
+<tr><td></td><td class="cap">january</td><td>जनवरी</td></tr>
+<tr><td></td><td class="cap">february</td><td>फरवरी</td></tr>
+<tr><td></td><td class="cap">march</td><td>मार्च</td></tr>
+<tr><td></td><td class="cap">april</td><td>अप्रैल</td></tr>
+<tr><td></td><td class="cap">may</td><td>मई</td></tr>
+<tr><td></td><td class="cap">june</td><td>जून</td></tr>
+<tr><td></td><td class="cap">hour</td><td>घंटा</td></tr>
+<tr><td></td><td class="cap">what</td><td>क्या</td></tr>
+<tr><td></td><td class="cap">where</td><td>कहाँ</td></tr>
+<tr><td></td><td class="cap">when</td><td>कब</td></tr>
+<tr><td></td><td class="cap">who</td><td>कौन</td></tr>
+<tr><td></td><td class="cap">why</td><td>क्यों</td></tr>
+<tr><td></td><td class="cap">how</td><td>कैसे</td></tr>
+<tr><td></td><td class="cap">which</td><td>कौन सा</td></tr>
+<tr><td></td><td class="cap">whose</td><td>किसका</td></tr>
+<tr><td></td><td class="cap">yes</td><td>हाँ</td></tr>
+<tr><td></td><td class="cap">no</td><td>नहीं</td></tr>
+<tr><td></td><td class="cap">how much</td><td>कितना</td></tr>
+<tr><td></td><td class="cap">how many</td><td>कितने</td></tr>
+<tr><td></td><td class="cap">name</td><td>नाम</td></tr>
+<tr><td></td><td class="cap">age</td><td>उम्र</td></tr>
+<tr><td></td><td class="cap">here</td><td>यहाँ</td></tr>
+<tr><td></td><td class="cap">there</td><td>वहाँ</td></tr>
+<tr><td></td><td class="cap">now</td><td>अभी</td></tr>
+<tr><td></td><td class="cap">later</td><td>बाद में</td></tr>
+<tr><td></td><td class="cap">today</td><td>आज</td></tr>
+<tr><td></td><td class="cap">tomorrow</td><td>कल</td></tr>
+<tr><td></td><td class="cap">menu</td><td>मेन्यू</td></tr>
+<tr><td></td><td class="cap">waiter</td><td>वेटर</td></tr>
+<tr><td></td><td class="cap">order</td><td>ऑर्डर</td></tr>
+<tr><td></td><td class="cap">bill</td><td>बिल</td></tr>
+<tr><td></td><td class="cap">vegetarian</td><td>शाकाहारी</td></tr>
+<tr><td></td><td class="cap">non-veg</td><td>मांसाहारी</td></tr>
+<tr><td></td><td class="cap">spicy</td><td>मसालेदार</td></tr>
+<tr><td></td><td class="cap">mild</td><td>हल्का</td></tr>
+<tr><td></td><td class="cap">sweet</td><td>मीठा</td></tr>
+<tr><td></td><td class="cap">salty</td><td>नमकीन</td></tr>
+<tr><td></td><td class="cap">roti</td><td>रोटी</td></tr>
+<tr><td></td><td class="cap">rice</td><td>चावल</td></tr>
+<tr><td></td><td class="cap">dal</td><td>दाल</td></tr>
+<tr><td></td><td class="cap">curry</td><td>कर्री</td></tr>
+<tr><td></td><td class="cap">soup</td><td>सूप</td></tr>
+<tr><td></td><td class="cap">salad</td><td>सलाद</td></tr>
+<tr><td></td><td class="cap">dessert</td><td>मिठाई</td></tr>
+<tr><td></td><td class="cap">water</td><td>पानी</td></tr>
+<tr><td></td><td class="cap">coffee</td><td>कॉफ़ी</td></tr>
+<tr><td></td><td class="cap">table</td><td>मेज़</td></tr>
+
 </tbody>
 </table>
 
 <div class="pagination">
     <button onclick="prevPage()">Previous</button>
-    <div id="pageNumbers"></div>
+    <div id="currentPageBox">1</div>
     <button onclick="nextPage()">Next</button>
 </div>
 
 </div>
 
 <script>
-    let currentPage = 1;
-    let rowsPerPage = 10;
-    let rows = [];
-    let allRows = [];
-    
-    function showPage() {
-        rows.forEach((row, index) => {
-            row.style.display =
-                index >= (currentPage - 1) * rowsPerPage &&
-                index < currentPage * rowsPerPage
+let currentPage = 1;
+let rowsPerPage = 10;
+let rows = [];
+let allRows = [];
+
+function showPage() {
+    rows.forEach((row, index) => {
+        row.style.display =
+            index >= (currentPage - 1) * rowsPerPage &&
+            index < currentPage * rowsPerPage
                 ? ""
                 : "none";
-    
-            if (row.style.display !== "none") {
-                row.cells[0].innerText = index + 1;
-            }
-        });
-    
-        renderPageNumbers();
-    }
-    
-    function renderPageNumbers() {
-        let pageBox = document.getElementById("pageNumbers");
-        pageBox.innerHTML = "";
-    
-        let totalPages = Math.ceil(rows.length / rowsPerPage);
-    
-        for (let i = 1; i <= totalPages; i++) {
-            let span = document.createElement("span");
-            span.innerText = i;
-    
-            if (i === currentPage) span.classList.add("active");
-    
-            span.onclick = () => {
-                currentPage = i;
-                showPage();
-                window.scrollTo({ top: 0, behavior: "smooth" });
-            };
-    
-            pageBox.appendChild(span);
+
+        if (row.style.display !== "none") {
+            row.cells[0].innerText = index + 1;
         }
-    }
-    
-    function nextPage() {
-        let totalPages = Math.ceil(rows.length / rowsPerPage);
-        if (currentPage < totalPages) {
-            currentPage++;
-            showPage();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        }
-    }
-    
-    function prevPage() {
-        if (currentPage > 1) {
-            currentPage--;
-            showPage();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        }
-    }
-    
-    function searchWord() {
-        let input = document.getElementById("search").value.toLowerCase();
-        rows = [];
-    
-        allRows.forEach(row => {
-            let eng = row.cells[1].innerText.toLowerCase();
-            let hin = row.cells[2].innerText.toLowerCase();
-    
-            if (eng.includes(input) || hin.includes(input)) {
-                row.style.display = "";
-                rows.push(row);
-            } else {
-                row.style.display = "none";
-            }
-        });
-    
-        currentPage = 1;
+    });
+
+    document.getElementById("currentPageBox").innerText = currentPage;
+}
+
+function nextPage() {
+    const totalPages = Math.ceil(rows.length / rowsPerPage);
+    if (currentPage < totalPages) {
+        currentPage++;
         showPage();
-    
-        // 🔝 Always go to top after search
         window.scrollTo({ top: 0, behavior: "smooth" });
     }
-    
-    window.onload = () => {
-        allRows = Array.from(document.querySelectorAll("#dictionary tr"));
-        rows = [...allRows];
+}
+
+function prevPage() {
+    if (currentPage > 1) {
+        currentPage--;
         showPage();
-    };
-    </script>
-    
-    
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+}
+
+function searchWord() {
+    const input = document.getElementById("search").value.toLowerCase();
+    rows = [];
+
+    allRows.forEach(row => {
+        const eng = row.cells[1].innerText.toLowerCase();
+        const hin = row.cells[2].innerText.toLowerCase();
+        if (eng.includes(input) || hin.includes(input)) {
+            row.style.display = "";
+            rows.push(row);
+        } else {
+            row.style.display = "none";
+        }
+    });
+
+    currentPage = 1;
+    showPage();
+}
+
+window.onload = () => {
+    allRows = Array.from(document.querySelectorAll("#dictionary tr"));
+    rows = [...allRows];
+    showPage();
+};
+</script>
 
 </body>
 </html>
